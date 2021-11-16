@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mavarzea/smoketest_project/3rdparty/extlib.cc
+
+/home/mavarzea/smoketest_project/src/cli/main.cc
+iostream
+-
+lib/component1.hh
+-
+extlib.hh
+-
+lib/component1.hh
+-
+extlib.hh
+-
+
+/home/mavarzea/smoketest_project/src/lib/component1.cc
+iostream
+-
+
+3rdparty/extlib.hh
+
+src/lib/component1.hh
+
