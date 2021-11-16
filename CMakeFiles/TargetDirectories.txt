@@ -1,7 +1,0 @@
-/home/mavarzea/smoketest_project/CMakeFiles/rebuild_cache.dir
-/home/mavarzea/smoketest_project/CMakeFiles/edit_cache.dir
-/home/mavarzea/smoketest_project/CMakeFiles/smoketest_project.dir
-/home/mavarzea/smoketest_project/tests/CMakeFiles/rebuild_cache.dir
-/home/mavarzea/smoketest_project/tests/CMakeFiles/edit_cache.dir
-/home/mavarzea/smoketest_project/tests/CMakeFiles/smoketest_project_tests.dir
-/home/mavarzea/smoketest_project/tests/CMakeFiles/runUnitTestsWithCoverage.dir

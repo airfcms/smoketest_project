@@ -9,8 +9,6 @@ enable_testing()
 
 include_directories(/usr/src/gtest/include /usr/src/gtest)
 
-include(CppcheckTargets)
-
 ################################
 # Unit Tests
 ################################
@@ -28,4 +26,11 @@ target_link_libraries(smoketest_project_tests gtest gtest_main pthread gcov)
 
 add_test( NAME unitTests COMMAND smoketest_project_tests --gtest_output=xml:${CMAKE_BINARY_DIR}/gtest-report.xml )
 add_test( NAME codeCoverage COMMAND /usr/bin/gcovr --xml -r ${CMAKE_CURRENT_SOURCE_DIR}/../src --object-directory=${CMAKE_BINARY_DIR}/tests -o ${CMAKE_BINARY_DIR}/gcovr-report.xml)
-add_cppcheck(smoketest_project_tests)
+
+separate_arguments(SMOKETEST_PROJECT_INCLUDE_DIRS)
+separate_arguments(SMOKETEST_PROJECT_SOURCE_FILES)
+
+string(REPLACE ";" " -I" L1 "${SMOKETEST_PROJECT_INCLUDE_DIRS}")
+string(REPLACE ";" " " L2 "${SMOKETEST_PROJECT_SOURCE_FILES}")
+
+add_test( NAME cppcheckAnalysis COMMAND sh -c "cppcheck -v --enable=all --xml ${L1} ${L2} 2> ${CMAKE_BINARY_DIR}/cppcheck-report.xml")

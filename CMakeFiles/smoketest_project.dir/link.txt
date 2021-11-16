@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -O0 -fprofile-arcs -ftest-coverage -g CMakeFiles/smoketest_project.dir/src/cli/main.cc.o CMakeFiles/smoketest_project.dir/src/lib/component1.cc.o CMakeFiles/smoketest_project.dir/3rdparty/extlib.cc.o -o smoketest_project  -lgcov 
