@@ -26,7 +26,7 @@ namespace {
         ASSERT_EQ(1, 1);
     }
     
-    TEST_F(Component1Test, foo_leaking) {
-        Bar().do_valgrind_errors();
-    }
+    // TEST_F(Component1Test, foo_leaking) {
+    //     Bar().do_valgrind_errors();
+    // }
 }

@@ -6,6 +6,11 @@ project (smoketest_project)
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty ) 
 
-add_executable (cppcheck_project "src/cli/main.cc" "src/lib/component1.cc" "3rdparty/extlib.cc")
+if(CMAKE_COMPILER_IS_GNUCXX)
+    SET(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+    include(${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules/CodeCoverage.cmake)
+endif()
+
+add_executable (smoketest_project "src/cli/main.cc" "src/lib/component1.cc" "3rdparty/extlib.cc")
 
 add_subdirectory( ${CMAKE_CURRENT_SOURCE_DIR}/tests )
