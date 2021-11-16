@@ -4,6 +4,8 @@ cmake_minimum_required (VERSION 3.8)
 
 project (runUnitTests) 
 
+option(MEMORY_CHECK "Execute memory checks" TRUE)
+
 # tests
 enable_testing()
 
@@ -24,7 +26,12 @@ add_executable( smoketest_project_tests unittests/test_component1.cc "../src/lib
 # Link test executable against gtest & gtest_main
 target_link_libraries(smoketest_project_tests gtest gtest_main pthread gcov)
 
-add_test( NAME unitTests COMMAND smoketest_project_tests --gtest_output=xml:${CMAKE_BINARY_DIR}/gtest-report.xml )
+if(MEMORY_CHECK)
+	add_test( NAME unitTests COMMAND valgrind --xml=yes --xml-file=${CMAKE_BINARY_DIR}/valgrind-report.xml ${CMAKE_CURRENT_BINARY_DIR}/smoketest_project_tests --gtest_output=xml:${CMAKE_BINARY_DIR}/gtest-report.xml )
+else()
+	add_test( NAME unitTests COMMAND smoketest_project_tests --gtest_output=xml:${CMAKE_BINARY_DIR}/gtest-report.xml )
+endif()
+
 add_test( NAME codeCoverage COMMAND /usr/bin/gcovr --xml -r ${CMAKE_CURRENT_SOURCE_DIR}/../src --object-directory=${CMAKE_BINARY_DIR}/tests -o ${CMAKE_BINARY_DIR}/gcovr-report.xml)
 
 separate_arguments(SMOKETEST_PROJECT_INCLUDE_DIRS)
