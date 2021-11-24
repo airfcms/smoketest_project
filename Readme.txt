@@ -7,4 +7,6 @@ This project is used for integration testing. Tested features:
 - unit test statistics, using the junitReport format
 
 
-Just some chnages to test the Jira integration
+Just some chnages to test the Jira integration.
+
+Missed something
