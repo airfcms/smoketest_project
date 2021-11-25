@@ -5,3 +5,6 @@ This project is used for integration testing. Tested features:
   - a cppcheck report
   - a valgrind report
 - unit test statistics, using the junitReport format
+
+
+testing branch-4
