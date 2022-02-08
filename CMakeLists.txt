@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 3.8)
 
 #include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/cli ${CMAKE_CURRENT_SOURCE_DIR}/lib ${CMAKE_CURRENT_SOURCE_DIR}/package1 ${CMAKE_CURRENT_SOURCE_DIR}/package2) 
+#test
 
 project (smoketest_project) 
 
