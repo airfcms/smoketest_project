@@ -6,4 +6,5 @@ This project is used for integration testing. Tested features:
   - a valgrind report
 - unit test statistics, using the junitReport format
 - test branch
+- FCMS-693
 
