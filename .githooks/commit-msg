@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# This will check the commit message and allow the
+#commit or not based on the commit message content.
+
+message=$(cat $1)
+
+echo ">>> ${message}"
+
+if [[ ${message} =~ ^\[[A-Z]{2,9}\-[0-9]{1,5}\][[:space:]].{20,}$ ]]; then
+	echo "Commit message verified. Proceeding..."
+else
+        echo "Your commit message must contain the JIRA issue ID between Brackets followed by a space and a description - [JIRA-23] This is a commit."
+	exit 1
+fi
+
+

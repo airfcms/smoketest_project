@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# This will configure hooks for this project
+
+echo Copying hook files and granting execute permissions...
+cp -v ../.githooks/* ../.git/hooks/ && chmod +x ../.git/hooks/*
+echo Done!
